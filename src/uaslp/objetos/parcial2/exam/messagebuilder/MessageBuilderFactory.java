@@ -1,20 +1,23 @@
 package uaslp.objetos.parcial2.exam.messagebuilder;
 
 public class MessageBuilderFactory extends MessageBuilder{
-    //private static MessageType messageType;
-    private static MessageBuilder messageBuilder;
-
-
 
     public static MessageBuilder getMessageBuilder(MessageType messageType) {
-        //return messageBuilder(messageType).create();
-        return MessageBuilder;
+       //creo un message builder
+        return new MessageBuilder() {
+            @Override
+            protected String getDescription() {
+                //el getdescription lo edito tambien, ahora toma en cuenta el tipo de mensaje
+                final String name = messageType.name(); //al ser abstracta se usa final
+                return name;
+            }
+          /* otra forma es hacer un switch de message type  y que segun lo que estuviera dentro
+          creariamos un String dependiendo de tipos y eso regresariamos, es muy parecido a la forma de ExporterFactory
+           */
+        };
+       }
 
-    }
-
-
-    @Override
-    protected static String getDescription(){
-        return create();
+    protected String getDescription() {
+        return null;
     }
 }

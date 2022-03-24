@@ -1,8 +1,6 @@
 package uaslp.objetos.parcial2.exam.exporters;
 
-import uaslp.objetos.parcial2.exam.messagebuilder.MessageBuilderFactory;
-
-public class ExporterFactory extends MessageBuilderFactory{
+public class ExporterFactory {
 
     public static Exporter getExporter(ExporterType type) {
         switch(type){
